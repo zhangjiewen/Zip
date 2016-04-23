@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "Zip"
-  s.version          = "0.1.3"
+  s.version          = "0.3.4"
   s.summary          = "Zip and unzip files in Swift."
 
 # This description is used to generate tags and improve search results.
@@ -27,10 +27,13 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/marmelroy/Zip.git", :tag => s.version.to_s, :submodules => true}
   s.social_media_url   = "http://twitter.com/marmelroy"
 
-  s.platform     = :ios, '8.0'
+  s.ios.deployment_target = '8.0'
+  s.tvos.deployment_target = '9.0'
+  s.watchos.deployment_target = '2.0'
+  s.osx.deployment_target = '10.9'
   s.requires_arc = true
 
-  s.source_files = 'Zip/*', 'Zip/minizip/*.{c,h}', 'Zip/minizip/aes/*.{c,h}'
+  s.source_files = 'Zip/*.{swift,h}', 'Zip/minizip/*.{c,h}', 'Zip/minizip/aes/*.{c,h}'
   s.public_header_files = 'Zip/*.h'
   s.pod_target_xcconfig = {'SWIFT_INCLUDE_PATHS' => '$(SRCROOT)/Zip/Zip/minizip/**','LIBRARY_SEARCH_PATHS' => '$(SRCROOT)/Zip/Zip/'}
   # s.public_header_files = 'Pod/Classes/**/*.h'
